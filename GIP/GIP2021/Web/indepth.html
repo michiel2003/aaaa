@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="IndepthStyle.css">
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div id="app">
+        <div class="info">
+            <div class="image column">
+                <img class="img" :src=url />
+            </div>
+            <div class="column textinfo">
+                <br>
+                <span><b>Tags:</b></span>
+                <div class="taglist">
+                    <p v-on:click="select(i)" class="tag" v-for="(tag,i) in updatetag">{{tag}}</p>
+                </div>
+                <br />
+                <span><b>Add Tags:</b></span><br />
+                <input v-model="TagText" type="text" placeholder="new tag"/>
+                <button v-on:click="addTag()" type="button"> Add Tag</button>
+                <br />
+                <br />
+                <span><b>Selected Tag</b></span>
+                <p class="tag">{{selected}}</p>
+                <button v-on:click="deleteTag()" type="button">Delete selected tag</button>
+                <br><br>
+                <span><b>Author of image: </b></span>
+                <p class="infoText" v-for="authorname in getAuthor">{{authorname}}</p>
+                <br>
+                <span><b>Add author to image</b></span><br>
+                <input v-model="AuthorText" type="text" placeholder="Author"><br>
+                <button v-on:click="addAuthor">Add author to this image</button>
+                <br><br>
+                <button v-on:click="closeWindow">Back</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="indepthScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <title>Home</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="Search" v-model="searchString">
+        <select v-model="selectedSearch" name="searchOn" id="searchSelector">
+            <option selected="selected" value="" disabled>-Select-</option>
+            <option value="Tag">Tag</option>
+            <option value="Author">Author</option>
+        </select>
+        <button type="button" v-on:click="openAuthors">View Authors</button>
+        <div class="FlexBox">
+            <ul class="imageList" >
+                <li class="imageListItem" v-for="url in Search">
+                    <a  v-on:click="openInedpth(url)">
+                        <img class="iconImage" :src=url>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="Script.js"></script>
+</body>
+</html>
